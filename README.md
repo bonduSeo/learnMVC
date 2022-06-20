@@ -10,12 +10,8 @@
     RewriteCond %{REQUEST_FILENAME} !-l
     RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
-
-
 #Controller 예시
 use application\models\BoardModel;
- 
- 
 
     class BoardController extends Controller {
         public function index() {
@@ -24,7 +20,7 @@ use application\models\BoardModel;
 
         public function list() {
             $model = new BoardModel();
-            $list = $model->selBoardList();        
+            $list = $model->selBoardList();
 
             $this->addAttribute("list", $list);
             return "board/list.php";
@@ -33,7 +29,7 @@ use application\models\BoardModel;
         public function detail() {
             $css = ['board/index', 'board/detail'];
             $js = ['board'];
-            $param = ["i_board" => $_GET["i_board"]];          
+            $param = ["i_board" => $_GET["i_board"]];
             $model = new BoardModel();
             $data = $model->selBoard($param);
             $this->addAttribute("data", $data);
@@ -76,11 +72,8 @@ use application\models\BoardModel;
         }
     }
 
-
-
-
-
 # Model 예시
+
     namespace application\models;
     use PDO;
 
@@ -118,6 +111,7 @@ use application\models\BoardModel;
     }
 
 # View 예시
+
     <h1>디테일!!!</h1>
 
     <div><?=$this->data->i_board?></div>
@@ -138,7 +132,7 @@ use application\models\BoardModel;
                 foreach ($this->list as $item) {
         ?>
             <a href="/board/detail?i_board=<?=$item->i_board; ?>"><h3>제목 : <?=$item->title;?></h3></a> 
-        <?php   
+        <?php
                 }
             }
 
