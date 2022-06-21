@@ -42,6 +42,5 @@ class BoardModel extends Model
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':i_board', $param["i_board"]);
         $stmt->execute();
-        header('Location: list');
     }
 }

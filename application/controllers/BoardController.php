@@ -35,6 +35,19 @@ class BoardController extends Controller
         $param = ['i_board' => $_GET['i_board']];
         $model = new BoardModel();
         $model->delBoard($param);
-        return "board/del.php";
+        return "redirect:/board/list";
+    }
+
+    public function mod()
+    {
+        $model = new BoardModel();
+        $i_board = $_GET['i_board'];
+        $param = ["i_board" => $i_board];
+        $this->addAttribute("data", $model->selBoard($param));
+
+        $this->addAttribute(_HEADER, $this->getView("template/header.php"));
+        $this->addAttribute(_MAIN, $this->getView("board/mod.php"));
+        $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
+        return "template/t1.php";
     }
 }
