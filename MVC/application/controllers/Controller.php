@@ -7,6 +7,8 @@ abstract class Controller
     public function __construct($action)
     {
         $view = $this->$action();
+        //문자열을 받았는데 문자열로 함수호출가능(php에선 간편)
+        //그 메소드 호출결과를(문자열) view에 받고
         require_once $this->getView($view);
     }
 
