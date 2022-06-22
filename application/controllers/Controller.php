@@ -2,6 +2,8 @@
 
 namespace application\controllers;
 
+include_once "application/utils/sessionUtils.php";
+
 abstract class Controller
 {
     public function __construct($action)
