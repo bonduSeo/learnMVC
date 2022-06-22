@@ -17,7 +17,7 @@ class Application
         }
         $getParams = explode('/', $getUrl);
         $controller = isset($getParams[0]) && $getParams[0] != '' ? $getParams[0] : 'board';
-        $action = isset($getParams[1]) && $getParams[1] != '' ? $getParams[1] : 'index';
+        $action = isset($getParams[1]) && $getParams[1] != '' ? $getParams[1] : 'list';
 
         if (!file_exists('application/controllers/' . $controller . 'Controller.php')) {
             echo "해당 컨트롤러가 존재하지 않습니다.";
