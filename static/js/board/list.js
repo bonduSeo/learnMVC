@@ -3,7 +3,7 @@
   trList.forEach((tr) => {
     const num = tr.dataset.i_board;
     tr.addEventListener("click", () => {
-      location.href = `detail?iboard=${num}`;
+      location.href = `detail?i_board=${num}`;
     });
   });
 })();

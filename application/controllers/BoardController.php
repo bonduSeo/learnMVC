@@ -23,7 +23,7 @@ class BoardController extends Controller
     public function detail()
     {
         $this->addAttribute("js", ['board/detail']);
-        $i_board = $_GET['iboard'];
+        $i_board = $_GET['i_board'];
         // print "i_board : {$i_board}<br>";
         $model = new BoardModel();
         $param = ["i_board" => $i_board];
@@ -49,5 +49,20 @@ class BoardController extends Controller
         $this->addAttribute(_MAIN, $this->getView("board/mod.php"));
         $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
         return "template/t1.php";
+    }
+
+    public function modProc()
+    {
+        $i_board = $_POST["i_board"];
+        $title = $_POST['title'];
+        $ctnt = $_POST['ctnt'];
+        $param = [
+            'i_board' => $i_board,
+            'title' => $title,
+            'ctnt' => $ctnt
+        ];
+        $model = new BoardModel();
+        $model->updBoard($param);
+        return "redirect:/board/detail?i_board=${i_board}";
     }
 }
