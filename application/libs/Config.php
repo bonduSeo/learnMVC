@@ -17,3 +17,5 @@ define("_LOGINUSER", "loginUser");
 
 define("_CSS", "css");
 define("_JS", "js");
+
+define("_MVCFOLER", "/MVC");

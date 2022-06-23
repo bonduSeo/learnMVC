@@ -13,7 +13,7 @@
 
     if (isset($this->js)) {
         foreach ($this->js as $js) {
-            echo "<script defer src='/static/js/{$js}.js'></script>
+            echo "<script defer src='" . _MVCFOLER . "/static/js/{$js}.js'></script>
                 ";
         }
     }

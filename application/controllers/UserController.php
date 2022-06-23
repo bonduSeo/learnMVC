@@ -26,7 +26,7 @@ class UserController extends Controller
         $param["upw"] = password_hash($param["upw"], PASSWORD_BCRYPT);
         $model = new UserModel();
         $model->insUser($param);
-        return "redirect:/user/join";
+        return "redirect:/user/login";
     }
 
     public function login()
